@@ -1,0 +1,177 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: #f5f7fb; /* light background */
+}
+
+/* WRAPPER */
+.wrapper {
+    min-height: 100vh;  
+    width: 100%;         
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+/* NAV */
+.nav {
+    background-color: #0078d4; /* main blue */
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* MAIN GRID */
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    min-height: 70vh;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* COLUMNS */
+.left, .middle, .right {
+    transition: transform 0.2s;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.left:hover, .middle:hover, .right:hover {
+    transform: translateY(-3px);
+}
+
+/* LEFT */
+.left h4 {
+    color: #0078d4;
+}
+
+/* MIDDLE */
+.middle {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.middle-top {
+    border-bottom: 2px solid #0078d4;
+    padding-bottom: 10px;
+}
+
+/* RIGHT */
+.right {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.right-top {
+    border-bottom: 2px solid #0078d4;
+}
+
+/* LOGO */
+.logo {
+    max-width: 70%;
+    margin: 10px auto;
+    display: block;
+}
+
+/* IMAGE */
+.garage-img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+/* FORM */
+input, select {
+    width: 95%;
+    margin: 6px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* BUTTON */
+button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005fa3;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #0078d4;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+}
+
+/* COOKIE BANNER */
+#cookieBanner {
+    position: fixed;
+    bottom: 0;
+    left: 0;          
+    width: 100%;      
+    background: #004a8f;
+    color: white;
+    text-align: center;
+    padding: 12px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+}
+
+.day {
+    background: #e6f0fa;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.day:hover {
+    background: #cce4f7;
+}
+
+.slots {
+    display: none;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* ===== NEW: WHY CHOOSE US ===== */
+.features {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.features li {
+    background: #f0f6fc;
+    margin: 5px 0;
+    padding: 8px;
+    border-left: 4px solid #0078d4;
+    transition: 0.3s;
+}
+
+.features li:hover {
+    background: #e1effa;
+}
