@@ -1,13 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Auto Works</title>
+
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="images/favicon-32x32.png">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
 
-    <script src="js/script.js"></script>
+<div class="wrapper">
+
+    <!-- NAV BAR -->
+    <div class="nav">
+        <h3>Navigation Bar</h3>
+        <p>Login - Home Page - About Us - Contact Us</p>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="main">
+
+        <!-- LEFT COLUMN -->
+        <div class="left">
+            <h4>Available slot,<br>Results This Week</h4>
+            <p>Monday [9-12, 2-5]</p>
+            <p>Tuesday [12-1, 1-5]</p>
+            <p>Wednesday [9-5]</p>
+            <p>Thursday [3-5]</p>
+            <p>Friday [9-12]</p>
+        </div>
+
+        <!-- MIDDLE COLUMN -->
+        <div class="middle">
+
+            <div class="middle-top">
+                <h3>Home Page</h3>
+            </div>
+
+            <div class="middle-bottom">
+                <h4>Booking Form</h4>
+
+                <form id="bookingForm">
+                    <label>Name</label>
+                    <input type="text" id="name">
+
+                    <label>Email</label>
+                    <input type="email" id="email">
+
+                    <label>Phone</label>
+                    <input type="text" id="phone">
+
+                    <label>Service Type</label>
+                    <select id="service">
+                        <option value="">Select</option>
+                        <option>Oil Change</option>
+                        <option>Brake Repair</option>
+                        <option>MOT</option>
+                    </select>
+
+                    <label>Date</label>
+                    <input type="date" id="date">
+
+                    <button type="submit">Book Service</button>
+                </form>
+
+                <p id="formMessage"></p>
+            </div>
+
+        </div>
+        
+</div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="right">
+
+            <div class="right-top">
+                <!-- LOGO -->
+                <img src="images/logo.png" alt="Prime Auto Works Logo" class="logo">
+            </div>
+
+            <div class="right-bottom">
+                <img src="images/Index_image.png" alt="Garage" class="garage-img">
+                <p>Why Choose Us<br>See on about us</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>Open Mon - Fri: 9am-5pm, 07876 657456</p>
+        <p>Mckenna-T17@ulster.ac.uk</p>
+    </div>
+
+</div>
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner">
+    <p>This website uses cookies</p>
+    <button id="acceptCookies">Accept</button>
+</div>
+
+<script src="js/script.js"></script>
+
 </body>
 </html>
