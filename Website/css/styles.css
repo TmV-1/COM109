@@ -1,3 +1,4 @@
+-- INDEX/HOME PAGE --
 body {
     margin: 0;
     padding: 0;
@@ -29,7 +30,7 @@ body {
 .main {
     display: grid;
     grid-template-columns: 1fr 1.2fr 1fr;
-    min-height: 70vh;
+    min-height: 100vh;
     gap: 10px;
     padding: 10px;
 }
@@ -174,4 +175,38 @@ button:hover {
 
 .features li:hover {
     background: #e1effa;
+}
+
+/* LOGIN PAGE */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.login-box {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-box input {
+    width: 90%;
+    margin: 8px 0;
+    padding: 8px;
+}
+
+.login-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#helpBtn {
+    margin-top: 10px;
+    background: #ccc;
 }
