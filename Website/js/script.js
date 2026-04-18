@@ -1,5 +1,13 @@
 $(document).ready(function () {
 
+    // SHOW USER FROM COOKIE
+let cookies = document.cookie;
+
+if (cookies.includes("user=")) {
+    let user = cookies.split("user=")[1];
+    $("#welcomeUser").text("Welcome, " + user);
+}
+
     // FADE IN PAGE
     $(".main").hide().fadeIn(800);
 
@@ -111,3 +119,74 @@ $(document).ready(function () {
     });
 
 });
+
+// Login Page
+    $("#loginForm").submit(function (e) {
+        e.preventDefault();
+
+        let user = $("#username").val();
+        let pass = $("#password").val();
+
+        if (user === "" || pass === "") {
+            $("#loginMessage")
+                .text("Please enter username and password")
+                .css("color", "red");
+            shakeForm();
+        }
+        else if (!user.includes("@")) {
+            $("#loginMessage")
+                .text("Enter a valid email")
+                .css("color", "red");
+            shakeForm();
+        }
+        else if (pass.length < 4) {
+            $("#loginMessage")
+                .text("Password must be at least 4 characters")
+                .css("color", "red");
+            shakeForm();
+        }
+        else {
+            $("#loginMessage")
+                .text("Login successful!")
+                .css("color", "green")
+                .hide()
+                .fadeIn();
+
+            document.cookie = "user=" + user;
+
+            setTimeout(function () {
+                window.location.href = "index.html";
+            }, 1000);
+        }
+    });
+
+    // ===== GUEST BUTTON =====
+    $("#guestBtn").click(function () {
+        $("#loginMessage")
+            .text("Continuing as guest...")
+            .css("color", "blue");
+
+        setTimeout(function () {
+            window.location.href = "index.html";
+        }, 1000);
+    });
+
+    // ===== HELP BUTTON =====
+    $("#helpBtn").click(function () {
+        alert("Enter your email and password (min 4 characters), or continue as guest.");
+    });
+
+    // ===== INPUT FOCUS =====
+    $("input").focus(function () {
+        $(this).css("background", "#e6f0fa");
+    }).blur(function () {
+        $(this).css("background", "white");
+    });
+
+    // ===== SHAKE ANIMATION =====
+    function shakeForm() {
+        $(".login-box")
+            .animate({ marginLeft: "-10px" }, 100)
+            .animate({ marginLeft: "10px" }, 100)
+            .animate({ marginLeft: "0px" }, 100);
+    }
