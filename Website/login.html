@@ -1,13 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Prime Auto Works</title>
+
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="images/favicon-32x32.png">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
 
-    <script src="js/script.js"></script>
+<div class="wrapper">
+
+    <!-- NAV -->
+    <div class="nav">
+        <h3>Navigation Bar</h3>
+        <p>Login - Home Page - About Us - Contact Us</p>
+    </div>
+
+    <!-- LOGIN CONTAINER -->
+    <div class="login-container">
+        <div class="login-box">
+            <h3>Login Page</h3>
+
+            <form id="loginForm">
+
+                <label>Username / Email</label>
+                <input type="text" id="username">
+
+                <label>Password</label>
+                <input type="password" id="password">
+
+                <div class="login-buttons">
+                    <button type="button" id="guestBtn">Continue as guest</button>
+                    <button type="submit">Login</button>
+                </div>
+
+            </form>
+
+            <p id="loginMessage"></p>
+
+            <button id="helpBtn">Help</button>
+
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>Open Mon - Fri: 9am-5pm, 07876 657456</p>
+    <p>Mckenna-117@ulster.ac.uk</p>
+</div>
+
+<script src="js/login.js"></script>
+
 </body>
 </html>
