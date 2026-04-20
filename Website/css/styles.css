@@ -2,17 +2,15 @@
 body {
     margin: 0;
     padding: 0;
-    padding-bottom: 70px;
 }
 
 body {
     margin: 0;
     font-family: Arial;
-    background-color: #f5f7fb; /* light background */
+    background-color: #f5f7fb; 
 }
 
 /* WRAPPER */
-/* Keeps standard layout wrapper but lets it grow naturally. Adjusted to ensure mobile page height accommodates all grid content. */
 .wrapper {
     min-height: 100vh;  
     width: 100%;         
@@ -21,68 +19,27 @@ body {
 }
 
 /* NAV */
-/* Replaced old fixed height spacing with padding.*/
 .nav {
-    background-color: #0078d4; /* main blue */
+    background-color: #0078d4; 
     color: white;
-    padding: 12px 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    text-align: center;
+    padding: 15px;
 }
 
-.nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.brand {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.nav-logo {
-    width: 52px;
-    height: 52px;
-    object-fit: contain;
-    border-radius: 10px;
-    padding: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    background: rgba(255, 255, 255, 0.16);
-}
-
-.nav-links {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.nav-links a {
+.nav a {
+    display: inline-block; 
     color: white;
     text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.45);
-    background: rgba(255,255,255,0.08);
+    margin: 0 10px;
+    padding: 5px;          
+    font-weight: 500;
+    transition: 0.2s;
 }
 
-.nav-links a:hover {
-    background: rgba(255,255,255,0.24);
+.nav a:hover {
+    text-decoration: underline;
+    color: #cce4f7;
 }
-
-.welcome-user {
-    max-width: 1100px;
-    margin: 8px auto 0;
-    padding: 0 2px;
-    color: #d7ecff;
-    min-height: 20px;
-    font-weight: 600;
-}
-
 /* MAIN GRID */
 .main {
     display: grid;
@@ -172,29 +129,9 @@ button:hover {
 .footer {
     background-color: #0078d4;
     color: white;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 15px;
     text-align: center;
-    display: grid;
-    gap: 6px;
-}
-
-.footer p {
-    margin: 0;
-}
-
-.footer a {
-    color: #e8f3ff;
-}
-
-.footer a:hover {
-    color: white;
+    padding: 15px;
+    width: 100%;
 }
 
 /* COOKIE BANNER */
@@ -213,18 +150,6 @@ button:hover {
 @media (max-width: 768px) {
     .main {
         grid-template-columns: 1fr;
-    }
-
-    .nav-inner {
-        justify-content: center;
-    }
-
-    .nav-links {
-        justify-content: center;
-    }
-
-    .welcome-user {
-        text-align: center;
     }
 }
 
@@ -279,14 +204,23 @@ button:hover {
     padding: 25px;
     border-radius: 8px;
     width: 300px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     text-align: center;
+    transition: transform 0.2s ease;
 }
 
 .login-box input {
     width: 90%;
     margin: 8px 0;
     padding: 8px;
+}
+
+.login-box:hover {
+    transform: scale(1.03);
+}
+
+.login-box {
+    border: 2px solid #0078d4; 
 }
 
 .login-buttons {
