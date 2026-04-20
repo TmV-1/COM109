@@ -1,192 +1,196 @@
-$(document).ready(function () {
-
-    // SHOW USER FROM COOKIE
-let cookies = document.cookie;
-
-if (cookies.includes("user=")) {
-    let user = cookies.split("user=")[1];
-    $("#welcomeUser").text("Welcome, " + user);
+// ================= COOKIE FUNCTIONS(OPEN IN LIVE SERVER) =================
+function setCookie(name, value, days) {
+    let exp = new Date();
+    exp.setTime(exp.getTime() + (days * 86400000));
+    document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + exp.toUTCString() + ";path=/";
 }
 
-    // FADE IN PAGE
-    $(".main").hide().fadeIn(800);
+function getCookie(name) {
+    let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? decodeURIComponent(match[2]) : null;
+}
 
-    // ===== BUILD DROPDOWN FROM AVAILABLE SLOTS =====
+$(document).ready(function () {
+
+    // ================= WELCOME USER (FIXED) =================
+    let savedUser = getCookie("user");
+
+    if (savedUser && savedUser !== "") {
+        $("#welcomeText").text("Welcome " + savedUser);
+    } else {
+        $("#welcomeText").text("Welcome");
+    }
+
+    // ================= LIVE CLOCK =================
+    function updateClock() {
+        let now = new Date();
+        $("#liveClock").text(now.toLocaleString());
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // ================= PAGE FADE =================
+    $(".main").hide().fadeIn(700);
+
+    // ================= BUILD TIME SLOTS =================
     $(".day").each(function () {
         let day = $(this).find("h5").text();
         let time = $(this).find(".slots").text();
-
-        $("#timeSlot").append(
-            `<option>${day} (${time})</option>`
-        );
+        $("#timeSlot").append(`<option>${day} (${time})</option>`);
     });
 
-    // ===== CLICK DAY → SHOW + SELECT =====
+    // ================= SLOT CLICK =================
     $(".day").click(function () {
+        $(".slots").slideUp();
         $(this).find(".slots").slideToggle();
-
-        let day = $(this).find("h5").text();
-        let time = $(this).find(".slots").text();
-
-        $("#timeSlot").val(`${day} (${time})`);
 
         $(".day").css("background", "#e6f0fa");
         $(this).css("background", "#bcdcff");
+
+        let day = $(this).find("h5").text();
+
+        $("#timeSlot option").each(function () {
+            if ($(this).text().includes(day)) {
+                $(this).prop("selected", true);
+            }
+        });
     });
 
-    // FORM VALIDATION
+    // ================= DATE LIMIT =================
+    let today = new Date().toISOString().split("T")[0];
+    $("#date").attr("min", today);
+
+    // ================= REAL-TIME VALIDATION =================
+    $("input, select").on("input", function () {
+        if ($(this).val().trim() !== "") {
+            $(this).css("border", "2px solid green");
+        } else {
+            $(this).css("border", "2px solid red");
+        }
+    });
+
+    $("#email").on("input", function () {
+        let valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($(this).val());
+        $(this).css("border", valid ? "2px solid green" : "2px solid red");
+    });
+
+    // ================= FORM SUBMIT =================
     $("#bookingForm").submit(function (e) {
         e.preventDefault();
 
         let valid = true;
 
-        $("input, select").css("border", "1px solid black");
+        let name = $("#name").val().trim();
+        let email = $("#email").val().trim();
+        let phone = $("#phone").val().trim();
+        let service = $("#service").val();
+        let date = $("#date").val();
 
-        if ($("#name").val() === "") {
-            $("#name").css("border", "2px solid red");
-            valid = false;
-        }
-
-        if ($("#email").val() === "" || !$("#email").val().includes("@")) {
-            $("#email").css("border", "2px solid red");
-            valid = false;
-        }
-
-        if ($("#phone").val() === "") {
-            $("#phone").css("border", "2px solid red");
-            valid = false;
-        }
-
-        if ($("#service").val() === "") {
-            $("#service").css("border", "2px solid red");
-            valid = false;
-        }
+        if (name.length < 2) valid = false;
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) valid = false;
+        if (phone.length < 7 || !/^[0-9+\s()-]+$/.test(phone)) valid = false;
+        if (!service) valid = false;
+        if (!date || date < today) valid = false;
 
         if (valid) {
+            if (getCookie("cookieConsent") === "accepted") {
+                setCookie("user", name, 30);
+                setCookie("email", email, 30);
+            }
+
             $("#formMessage")
-                .text("Booking successful!")
+                .text("✔ Booking confirmed!")
                 .css("color", "green")
                 .hide()
                 .fadeIn();
 
-            document.cookie = "username=" + $("#name").val();
+            setTimeout(() => {
+                $("#bookingForm")[0].reset();
+                $("#formMessage").fadeOut();
+            }, 3000);
 
-            $("#bookingForm")[0].reset();
         } else {
             $("#formMessage")
-                .text("Please complete all fields correctly")
-                .css("color", "red");
+                .text("✖ Please fix the highlighted fields")
+                .css("color", "red")
+                .hide()
+                .fadeIn();
         }
     });
 
-    // REAL-TIME VALIDATION
-    $("input, select").on("keyup change", function () {
-        if ($(this).val() !== "") {
-            $(this).css("border", "2px solid green");
-        }
-    });
-
-    // HOVER IMAGE
+    // ================= IMAGE HOVER =================
     $(".garage-img").hover(
-        function () {
-            $(this).css("transform", "scale(1.05)");
-        },
-        function () {
-            $(this).css("transform", "scale(1)");
-        }
+        function () { $(this).css("transform", "scale(1.05)"); },
+        function () { $(this).css("transform", "scale(1)"); }
     );
 
-    // INPUT FOCUS
+    // ================= INPUT FOCUS =================
     $("input, select").focus(function () {
         $(this).css("background", "#e6f0fa");
     }).blur(function () {
         $(this).css("background", "white");
     });
 
-    // COOKIE BANNER
-    if (document.cookie.includes("accepted=true")) {
-        $("#cookieBanner").hide();
-    }
+    // ================= COOKIE BANNER =================
+   if (!getCookie("cookieConsent")) {
+    $("#cookieBanner").show();
+} else {
+    $("#cookieBanner").hide();
+}
 
-    $("#acceptCookies").click(function () {
-        document.cookie = "accepted=true";
-        $("#cookieBanner").fadeOut();
-    });
-
-    $("#declineCookies").click(function () {
-        document.cookie = "declined=false";
-        $("#cookieBanner").fadeOut();
-    });
-
+$("#acceptCookies").click(function () {
+    setCookie("cookieConsent", "accepted", 30);
+    $("#cookieBanner").fadeOut(1000);
 });
 
-// Login Page
+$("#declineCookies").click(function () {
+    setCookie("cookieConsent", "declined", 30);
+    $("#cookieBanner").fadeOut(1000);
+});
+    // ================= LOGIN PAGE =================
+    $(".login-box").hide().fadeIn(600);
     $("#loginForm").submit(function (e) {
         e.preventDefault();
 
-        let user = $("#username").val();
-        let pass = $("#password").val();
+        let user = $("#username").val().trim();
+        let pass = $("#password").val().trim();
 
         if (user === "" || pass === "") {
-            $("#loginMessage")
-                .text("Please enter username and password")
-                .css("color", "red");
-            shakeForm();
+            showMsg("Enter email and password", "red");
+            shake();
         }
         else if (!user.includes("@")) {
-            $("#loginMessage")
-                .text("Enter a valid email")
-                .css("color", "red");
-            shakeForm();
+            showMsg("Enter valid email", "red");
+            shake();
         }
         else if (pass.length < 4) {
-            $("#loginMessage")
-                .text("Password must be at least 4 characters")
-                .css("color", "red");
-            shakeForm();
+            showMsg("Password too short", "red");
+            shake();
         }
         else {
-            $("#loginMessage")
-                .text("Login successful!")
-                .css("color", "green")
-                .hide()
-                .fadeIn();
-
-            document.cookie = "user=" + user;
-
-            setTimeout(function () {
-                window.location.href = "index.html";
-            }, 1000);
+            setCookie("user", user, 30); // READS GUEST USER FOR LOADING HOMPAGE
+            window.location.href = "index.html";
         }
     });
 
-    // ===== GUEST BUTTON =====
     $("#guestBtn").click(function () {
-        $("#loginMessage")
-            .text("Continuing as guest...")
-            .css("color", "blue");
-
-        setTimeout(function () {
-            window.location.href = "index.html";
-        }, 1000);
+        setCookie("user", "Guest", 1); // READS GUEST USER FOR LOADING HOMPAGE
+        window.location.href = "index.html";
     });
 
-    // ===== HELP BUTTON =====
     $("#helpBtn").click(function () {
-        alert("Enter your email and password (min 4 characters), or continue as guest.");
+        alert("Enter your email and password (min 4 characters)");
     });
 
-    // ===== INPUT FOCUS =====
-    $("input").focus(function () {
-        $(this).css("background", "#e6f0fa");
-    }).blur(function () {
-        $(this).css("background", "white");
-    });
+    function showMsg(msg, color) {
+        $("#loginMessage").text(msg).css("color", color).hide().fadeIn();
+    }
 
-    // ===== SHAKE ANIMATION =====
-    function shakeForm() {
+    function shake() {
         $(".login-box")
             .animate({ marginLeft: "-10px" }, 100)
             .animate({ marginLeft: "10px" }, 100)
             .animate({ marginLeft: "0px" }, 100);
     }
+
+});
