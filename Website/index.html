@@ -1,162 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Auto Works</title>
-
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="images/favicon-32x32.png">
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Auto Works</title>
+ 
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="images/favicon-32x32.png">
+ 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-
+ 
 <body>
-
-    <div class="wrapper">
-
-        <!-- NAV BAR -->
-        <!-- Added simple branding and links, swapping standalone text for a flexbox logo container -->
-        <div class="nav">
-            <div class="nav-inner">
-                <a href="index.html" class="brand" aria-label="Prime Auto Works Home">
-                    <img src="images/logo_no_text.png" alt="Prime Auto Works Logo" class="nav-logo">
-                </a>
-                <nav class="nav-links" aria-label="Main navigation">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                    <a href="login.html">Login</a>
-                </nav>
-            </div>
-            <p id="welcomeUser" class="welcome-user"></p>
-        </div>
-
-        <!-- MAIN GRID -->
-        <div class="main">
-
-            <!-- LEFT COLUMN -->
-            <div class="left">
-                <h4>Available Slots This Week</h4>
-
-                <div class="day">
-                    <h5>Monday</h5>
-                    <p class="slots">9am-12pm, 2pm-5pm</p>
-                </div>
-
-                <div class="day">
-                    <h5>Tuesday</h5>
-                    <p class="slots">12pm-1pm, 1pm-5pm</p>
-                </div>
-
-                <div class="day">
-                    <h5>Wednesday</h5>
-                    <p class="slots">9am-5pm</p>
-                </div>
-
-                <div class="day">
-                    <h5>Thursday</h5>
-                    <p class="slots">3pm-5pm</p>
-                </div>
-
-                <div class="day">
-                    <h5>Friday</h5>
-                    <p class="slots">9am-12pm</p>
-                </div>
-            </div>
-
-            <!-- MIDDLE COLUMN -->
-            <div class="middle">
-
-                <div class="middle-top">
-                    <h3>Home Page</h3>
-                </div>
-
-                <div class="middle-bottom">
-                    <h4>Booking Form</h4>
-
-                    <form id="bookingForm">
-                        <label>Name</label>
-                        <input type="text" id="name" required>
-                        <input type="text" id="name">
-
-                        <label>Email</label>
-                        <input type="email" id="email">
-
-                        <label>Phone</label>
-                        <input type="text" id="phone">
-
-                        <label>Service Type</label>
-                        <select id="service">
-                            <option value="">Select</option>
-                            <option>Oil Change</option>
-                            <option>Brake Repair</option>
-                            <option>MOT</option>
-                        </select>
-
-                        <label>Date</label>
-                        <input type="date" id="date">
-
-                        <label>Choose Time Slot</label>
-                        <select id="timeSlot">
-                            <option value="">Select a time</option>
-                        </select>
-
-                        <button type="submit">Book Service</button>
-                    </form>
-
-                    <p id="formMessage"></p>
-                </div>
-
-            </div>
-
-            <!-- RIGHT COLUMN -->
-            <div class="right">
-
-                <div class="right-top">
-                    <!-- LOGO IMAGE -->
-                    <img src="images/logo.png" alt="Prime Auto Works Logo" class="logo">
-                </div>
-
-                <div class="right-bottom">
-
-                    <img src="images/Index_image.png" alt="Garage" class="garage-img">
-
-                    <h4>Why Choose Us</h4>
-
-                    <ul class="features">
-                        <li>✔ Certified Mechanics</li>
-                        <li>✔ Affordable Prices</li>
-                        <li>✔ Fast Service</li>
-                        <li>✔ Trusted Local Garage</li>
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
+ 
+<div class="wrapper">
+ 
+    <!-- NAV BAR -->
+    <div class="nav">
+        <!-- Live clock — populated by jQuery every second -->
+        <p id="liveClock" style="margin:0; font-size:13px; opacity:0.85;"></p>
+        <h3 id="welcomeText" style="margin:6px 0;">Welcome</h3>
+        <p style="margin:0;">
+            <a href="login.html">Login</a> -
+            <a href="index.html">Home Page</a> -
+            <a href="about.html">About Us</a> -
+            <a href="contact.html">Contact Us</a>
+        </p>
     </div>
-
+ 
+    <!-- MAIN GRID -->
+    <div class="main">
+ 
+        <!-- LEFT COLUMN — Available Slots -->
+        <div class="left">
+            <h4>Available Slots This Week</h4>
+ 
+            <div class="day">
+                <h5>Monday</h5>
+                <p class="slots">9am-12pm, 2pm-5pm</p>
+            </div>
+            <div class="day">
+                <h5>Tuesday</h5>
+                <p class="slots">12pm-1pm, 1pm-5pm</p>
+            </div>
+            <div class="day">
+                <h5>Wednesday</h5>
+                <p class="slots">9am-5pm</p>
+            </div>
+            <div class="day">
+                <h5>Thursday</h5>
+                <p class="slots">3pm-5pm</p>
+            </div>
+            <div class="day">
+                <h5>Friday</h5>
+                <p class="slots">9am-12pm</p>
+            </div>
+        </div>
+ 
+        <!-- MIDDLE COLUMN — Booking Form -->
+        <div class="middle">
+ 
+            <div class="middle-top">
+                <h3>Home Page</h3>
+            </div>
+ 
+            <div class="middle-bottom">
+                <h4>Booking Form</h4>
+ 
+                <form id="bookingForm">
+ 
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Full name" required>
+ 
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="email@example.com">
+ 
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" placeholder="07xxx xxxxxx">
+ 
+                    <label for="service">Service Type</label>
+                    <select id="service">
+                        <option value="">Select a service</option>
+                        <option>Oil Change</option>
+                        <option>Brake Repair</option>
+                        <option>MOT</option>
+                        <option>Full Service</option>
+                        <option>Tyres</option>
+                    </select>
+ 
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date">
+ 
+                    <label for="timeSlot">Choose Time Slot</label>
+                    <select id="timeSlot">
+                        <option value="">Select a time</option>
+                    </select>
+ 
+                    <button type="submit">Book Service</button>
+ 
+                </form>
+            </div>
+ 
+        </div>
+ 
+        <!-- RIGHT COLUMN — Logo + Image + Why Choose Us -->
+        <div class="right">
+ 
+            <div class="right-top">
+                <img src="images/logo.png" alt="Prime Auto Works Logo" class="logo">
+            </div>
+ 
+            <div class="right-bottom">
+                <img src="images/Index_image.png" alt="Garage" class="garage-img">
+                <h4>Why Choose Us</h4>
+                <ul class="features">
+                    <li>✓ Certified Mechanics</li>
+                    <li>✓ Affordable Prices</li>
+                    <li>✓ Fast Service</li>
+                    <li>✓ Trusted Local Garage</li>
+                </ul>
+            </div>
+ 
+        </div>
+ 
+    </div><!-- end of section .main -->
+ 
     <!-- FOOTER -->
     <div class="footer">
-        <div class="footer-inner">
-            <!-- Placeholder company details for a realistic footer layout -->
-            <p>Prime Auto Works | 123 Service Lane, Belfast BT1 1AA</p>
-            <p>Phone: 028 9000 1234 | Email: <a href="mailto:hello@primeautoworks.example">hello@primeautoworks.example</a></p>
-            <p>Mon-Fri 8:30am-6:00pm | Sat 9:00am-2:00pm | Sun Closed</p>
-            <p>&copy; 2026 Prime Auto Works. All rights reserved.</p>
-        </div>
+        <p>Open Mon - Fri: 9am-5pm &nbsp;|&nbsp; 07876 657456</p>
+        <p>Mckenna-t17@ulster.ac.uk &nbsp;|&nbsp; Miszczuk-M@ulster.ac.uk &nbsp;|&nbsp; McTaggart-C4@ulster.ac.uk</p>
     </div>
-
-    <!-- COOKIE BANNER -->
-    <div id="cookieBanner">
-        <p>This website uses cookies</p>
-        <button id="acceptCookies">Accept</button>
-        <button id="declineCookies">Decline</button>
-    </div>
-
-    <script src="js/script.js"></script>
-
+ 
+</div><!-- end of section .wrapper -->
+ 
+<!-- COOKIE BANNER -->
+<div id="cookieBanner">
+    <p style="margin:0 0 6px 0;">This website uses cookies to improve your experience.</p>
+    <button id="acceptCookies">Accept</button>
+    <button id="declineCookies">Decline</button>
+</div>
+ 
+<script src="js/script.js"></script>
+ 
 </body>
 </html>
