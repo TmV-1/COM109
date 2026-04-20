@@ -4,10 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+    
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon-32x32.png">
 </head>
+
 <body>
 
+    <!-- NAV BAR -->
+    <!-- Added simple branding and links, swapping standalone text for a flexbox logo container -->
+    <div class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand" aria-label="Prime Auto Works Home">
+                <img src="images/logo_no_text.png" alt="Prime Auto Works Logo" class="nav-logo">
+            </a>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+        <p id="welcomeUser" class="welcome-user"></p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="footer-inner">
+            <!-- Placeholder company details for a realistic footer layout -->
+            <p>Prime Auto Works | 123 Service Lane, Belfast BT1 1AA</p>
+            <p>Phone: 028 9000 1234 | Email: <a href="mailto:hello@primeautoworks.example">hello@primeautoworks.example</a></p>
+            <p>Mon-Fri 8:30am-6:00pm | Sat 9:00am-2:00pm | Sun Closed</p>
+            <p>&copy; 2026 Prime Auto Works. All rights reserved.</p>
+        </div>
+    </div>
+
     <script src="js/script.js"></script>
+
 </body>
 </html>
