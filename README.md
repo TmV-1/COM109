@@ -7,9 +7,9 @@ COM109_Group29/
 │
 ├── Website/
 │   ├── index.html           # Home page
-│   ├── about.html           # About page
-│   ├── contact.html         # Contact page
-│   ├── login.html           # Login page
+│   ├── Login.html           # About page
+│   ├── About.html         # Contact page
+│   ├── Contact.html           # Login page
 │   ├── favicon.ico          # Browser favicon
 │   │
 │   ├── css/
