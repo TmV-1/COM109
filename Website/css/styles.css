@@ -1,236 +1,606 @@
--- INDEX/HOME PAGE --
+/* ================= GLOBAL STYLES ================= */
 body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fb;
+    color: #333;
+}
+
+/* ================= LAYOUT ================= */
+
+/* Header, Main, Footer row layout */
+.wrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* Main content area — uses block so each page section can define its own layout */
+.main {
+    display: block;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ================= NAVIGATION ================= */
+.header {
+    background-color: #0078d4;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Logo + welcome text act as a home link */
+.nav-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-brand:hover {
+    opacity: 0.85;
+}
+
+#welcomeText {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
 }
 
-body {
-    margin: 0;
-    font-family: Arial;
-    background-color: #f5f7fb; 
+.nav-links li {
+    margin: 0 5px;
 }
 
-/* WRAPPER */
-.wrapper {
-    min-height: 100vh;  
-    width: 100%;         
-    display: grid;
-    grid-template-rows: auto 1fr;
-}
-
-/* NAV */
-.nav {
-    background-color: #0078d4; 
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-
-.nav a {
-    display: inline-block; 
+.nav-links a {
     color: white;
     text-decoration: none;
-    margin: 0 10px;
-    padding: 5px;          
     font-weight: 500;
-    transition: 0.2s;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
-.nav a:hover {
-    text-decoration: underline;
-    color: #cce4f7;
+.nav-links a:hover {
+    background-color: #005fa3;
 }
-/* MAIN GRID */
-.main {
+
+.clock {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+/* ================= LANDING SECTION (INDEX) ================= */
+.landing-section {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.landing-image-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.landing-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.landing-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px;
+    box-sizing: border-box;
+    color: white;
+}
+
+.landing-logo {
+    max-width: 500px;
+    margin-bottom: 20px;
+    margin-left: -50px;
+}
+
+.landing-overlay h1 {
+    font-size: 42px;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.landing-overlay p {
+    font-size: 18px;
+    margin: 0 0 30px 0;
+    opacity: 0.9;
+}
+
+.cta-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    background-color: #0078d4;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background-color: #005fa3;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.cta-button-outline {
+    background-color: transparent;
+    border: 2px solid white;
+}
+
+/* ================= BENEFITS SECTION (INDEX) ================= */
+.benefits-section h2 {
+    text-align: center;
+    color: #0078d4;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.about-cta {
+    text-align: center;
+    padding: 40px 0 60px 0;
+}
+
+.benefits-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr 1fr;
-    min-height: 100vh;
-    gap: 10px;
-    padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-/* COLUMNS */
-.left, .middle, .right {
-    transition: transform 0.2s;
+.benefit-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-bottom: 4px solid #0078d4;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.benefit-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ================= BOOKING SECTION (CONTACT PAGE) ================= */
+.booking-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+}
+
+.left,
+.middle {
     background: white;
     border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.left:hover, .middle:hover, .right:hover {
-    transform: translateY(-3px);
-}
-
-/* LEFT */
 .left h4 {
     color: #0078d4;
-}
-
-/* MIDDLE */
-.middle {
-    display: grid;
-    grid-template-rows: auto 1fr;
-}
-
-.middle-top {
+    margin-top: 0;
     border-bottom: 2px solid #0078d4;
     padding-bottom: 10px;
 }
 
-/* RIGHT */
-.right {
-    display: grid;
-    grid-template-rows: auto 1fr;
-}
-
-.right-top {
-    border-bottom: 2px solid #0078d4;
-}
-
-/* LOGO */
-.logo {
-    max-width: 70%;
-    margin: 10px auto;
-    display: block;
-}
-
-/* IMAGE */
-.garage-img {
-    width: 100%;
-    border-radius: 6px;
-}
-
-/* FORM */
-input, select {
-    width: 95%;
-    margin: 6px 0;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* BUTTON */
-button {
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #0078d4;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #005fa3;
-}
-
-/* FOOTER */
-.footer {
-    background-color: #0078d4;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    width: 100%;
-}
-
-/* COOKIE BANNER */
-#cookieBanner {
-    position: fixed;
-    bottom: 0;
-    left: 0;          
-    width: 100%;      
-    background: #004a8f;
-    color: white;
-    text-align: center;
-    padding: 12px;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .main {
-        grid-template-columns: 1fr;
-    }
+.middle-top h3 {
+    margin-top: 0;
+    color: #0078d4;
 }
 
 .day {
     background: #e6f0fa;
-    margin: 8px 0;
-    padding: 10px;
+    margin: 10px 0;
+    padding: 12px;
     border-radius: 6px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background 0.3s;
 }
 
 .day:hover {
     background: #cce4f7;
 }
 
+.day h5 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
 .slots {
     display: none;
-    margin-top: 5px;
+    margin-top: 8px;
     font-size: 14px;
+    color: #555;
 }
 
-/* ===== NEW: WHY CHOOSE US ===== */
-.features {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
+/* ================= FORMS ================= */
+form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 500;
+    color: #444;
 }
 
-.features li {
-    background: #f0f6fc;
-    margin: 5px 0;
-    padding: 8px;
-    border-left: 4px solid #0078d4;
-    transition: 0.3s;
+input,
+select,
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 6px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-.features li:hover {
-    background: #e1effa;
+input:focus,
+select:focus,
+textarea:focus {
+    background: #e6f0fa;
+    outline: none;
+    border-color: #0078d4;
 }
 
-/* LOGIN PAGE */
+button {
+    padding: 12px 20px;
+    margin-top: 15px;
+    background-color: #0078d4;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #005fa3;
+}
+
+#formMessage {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ================= LOGIN PAGE ================= */
 .login-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 70vh;
+    gap: 40px;
+}
+
+.banner-logo {
+    text-align: center;
+}
+
+.banner-logo .logo {
+    max-width: 300px;
 }
 
 .login-box {
     background: white;
-    padding: 25px;
+    padding: 40px;
     border-radius: 8px;
-    width: 300px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    width: 320px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     text-align: center;
-    transition: transform 0.2s ease;
-}
-
-.login-box input {
-    width: 90%;
-    margin: 8px 0;
-    padding: 8px;
+    transition: transform 0.3s ease;
+    border-top: 4px solid #0078d4;
 }
 
 .login-box:hover {
-    transform: scale(1.03);
+    transform: translateY(-3px);
 }
 
-.login-box {
-    border: 2px solid #0078d4; 
+.login-box h3 {
+    margin-top: 0;
+    color: #0078d4;
 }
 
 .login-buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    gap: 10px;
+}
+
+.login-buttons button {
+    flex: 1;
+}
+
+#guestBtn {
+    background: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+#guestBtn:hover {
+    background: #e0e0e0;
 }
 
 #helpBtn {
-    margin-top: 10px;
-    background: #ccc;
-    color: black;
+    margin-top: 15px;
+    background: transparent;
+    color: #666;
+    text-decoration: underline;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+#helpBtn:hover {
+    color: #333;
+}
+
+.banner-logo .logo {
+    max-width: 300px;
+}
+
+/* ================= ABOUT US SECTION ================= */
+.about-section {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h1 {
+    color: #0078d4;
+    text-align: center;
+    margin-top: 0;
+}
+
+.about-intro-text {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 50px auto;
+    font-size: 22px;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.8;
+    position: relative;
+    padding-bottom: 25px;
+}
+
+.about-intro-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #0078d4, #00c6ff);
+    border-radius: 2px;
+}
+
+.about-garage-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.about-garage-text {
+    flex: 1;
+}
+
+.about-garage-text h2 {
+    color: #0078d4;
+    margin-top: 0;
+    font-size: 28px;
+}
+
+.about-garage-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.about-garage-image {
+    flex: 1;
+}
+
+.about-garage-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.about-box {
+    background: #f5f7fb;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid #0078d4;
+}
+
+.about-box h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 20px;
+}
+
+.about-box p {
+    color: #555;
+    line-height: 1.5;
+}
+
+.section-divider {
+    margin: 40px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+.contact-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f5f7fb;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid #0078d4;
+}
+
+.contact-form-header {
+    text-align: center;
+    color: #0078d4;
+    margin-top: 0;
+}
+
+.contact-form-description {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background-color: #0078d4;
+    color: white;
+    text-align: center;
+    padding: 20px 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* ================= COOKIE BANNER ================= */
+#cookieBanner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #004a8f;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#cookieBanner p {
+    margin: 0 0 6px 0;
+}
+
+#cookieBanner button {
+    width: auto;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 20px;
+}
+
+/* ================= RESPONSIVE (max 768px) ================= */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .booking-section {
+        grid-template-columns: 1fr;
+    }
+
+    .landing-overlay {
+        padding: 30px;
+    }
+
+    .landing-overlay h1 {
+        font-size: 32px;
+    }
+
+    .login-container {
+        flex-direction: column;
+    }
+
+    .about-garage-section {
+        flex-direction: column;
+    }
 }

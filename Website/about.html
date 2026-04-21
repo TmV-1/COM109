@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    
+    <title>About Us - Prime Auto Works</title>
+
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/favicon-32x32.png">
 
@@ -12,112 +12,133 @@
 </head>
 
 <body>
+    <div class="wrapper">
 
-<div class="wrapper">
+        <!-- HEADER / NAV BAR -->
+        <header class="header">
+            <nav class="nav">
+                <!-- Branding and Logo -->
+                <div class="nav-left">
+                    <a href="index.html" class="nav-brand">
+                        <img src="images/logo_no_text.png" alt="Logo" class="nav-logo">
+                        <h3 id="welcomeText">Welcome</h3>
+                    </a>
+                </div>
 
-    <!-- NAV BAR -->
-    <div class="nav">
-        <!-- Live clock — populated by jQuery every second -->
-        <p id="liveClock" style="margin:0; font-size:13px; opacity:0.85;"></p>
-        <h3 id="welcomeText" style="margin:6px 0;">Welcome</h3>
-        <p style="margin:0;">
-            <a href="login.html">Login</a> -
-            <a href="index.html">Home Page</a> -
-            <a href="about.html">About Us</a> -
-            <a href="contact.html">Contact Us</a>
-        </p>
+                <!-- Navigation Links -->
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+
+                <!-- Live Clock display -->
+                <div class="nav-right">
+                    <p id="liveClock" class="clock"></p>
+                </div>
+            </nav>
+        </header>
+
+        <!-- MAIN PAGE CONTENT -->
+        <main class="main">
+            <!-- ABOUT US SECTION -->
+            <section class="about-section">
+                <h1>About Us</h1>
+                <p class="about-intro-text">
+                    Welcome to Prime Auto Works, your trusted destination for professional
+                    vehicle styling, detailing, and modification services. We are passionate
+                    about helping car owners transform their vehicles with high-quality work
+                    and attention to detail.
+                </p>
+
+                <div class="about-garage-section">
+                    <div class="about-garage-text">
+                        <h2>Our Specialized Garage</h2>
+                        <p>
+                            At Prime Auto Works, our specialized garage is equipped to handle everything from routine
+                            maintenance to complex custom modifications. Our state of the art facility provides our
+                            certified mechanics with the perfect environment to deliver precision and care to your vehicle.
+                        </p>
+                        <p>
+                            We pride ourselves on maintaining a clean, organized, and technologically advanced
+                            workspace. This allows us to ensure every vehicle that comes through our doors receives the
+                            highest standard of service in the industry.
+                        </p>
+                    </div>
+                    <div class="about-garage-image">
+                        <img src="images/about_image.png" alt="Our Specialized Garage">
+                    </div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-box">
+                        <h2>Our Mission</h2>
+                        <p>
+                            Our mission is to deliver premium automotive services that combine
+                            quality, reliability, and customer satisfaction.
+                        </p>
+                    </div>
+
+                    <div class="about-box">
+                        <h2>Why Choose Us?</h2>
+                        <p>
+                            Experienced staff, professional equipment, fair pricing, and strong
+                            customer service make us the right choice for your vehicle.
+                        </p>
+                    </div>
+
+                    <div class="about-box">
+                        <h2>Our Services</h2>
+                        <p>
+                            We offer detailing, custom styling, wrapping, polishing, and vehicle
+                            enhancement services tailored to your needs.
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <div id="contact-form-section" class="contact-form-container">
+                    <h2 class="contact-form-header">Send us a Message</h2>
+                    <p class="contact-form-description">Have a general question? Fill out the form below and we'll be in touch.</p>
+
+                    <form>
+                        <label for="msgName">Full Name</label>
+                        <input type="text" id="msgName" placeholder="Full Name" required>
+
+                        <label for="msgEmail">Email Address</label>
+                        <input type="email" id="msgEmail" placeholder="Email Address" required>
+
+                        <label for="msgSubject">Subject</label>
+                        <input type="text" id="msgSubject" placeholder="Subject" required>
+
+                        <label for="msgContent">Your Message</label>
+                        <textarea id="msgContent" placeholder="Your Message" rows="5" required></textarea>
+
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>Open Mon - Fri: 9am-5pm &nbsp;|&nbsp; 07876 657456</p>
+            <p>Mckenna-t17@ulster.ac.uk &nbsp;|&nbsp; Miszczuk-M@ulster.ac.uk &nbsp;|&nbsp; McTaggart-C4@ulster.ac.uk</p>
+        </footer>
+
     </div>
 
-    <div class="container">
-    <div class="contact-box">
-      <div class="contact-info">
-        <h2>Contact Us</h2>
-        <p>
-          We'd love to hear from you. Whether you have a question about our services,
-          pricing, or anything else, our team is ready to help.
-        </p>
-      </div>
-
-    <div class="contact-form">
-        <h2>Send a Message</h2>
-        <form>
-          <div class="form-group">
-            <input type="text" placeholder="Full Name" required>
-          </div>
-
-          <div class="form-group">
-            <input type="email" placeholder="Email Address" required>
-          </div>
-
-          <div class="form-group">
-            <input type="text" placeholder="Subject" required>
-          </div>
-
-          <div class="form-group">
-            <textarea placeholder="Your Message" required></textarea>
-          </div>
-
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-    <!-- ABOUT US SECTION -->
-  <section class="about-section">
-    <div class="about-container">
-      <h1>About Us</h1>
-      <p>
-        Welcome to Prime Auto Works — your trusted destination for professional
-        vehicle styling, detailing, and modification services. We are passionate
-        about helping car owners transform their vehicles with high-quality work
-        and attention to detail.
-      </p>
-
-      <div class="about-grid">
-        <div class="about-box">
-          <h2>Our Mission</h2>
-          <p>
-            Our mission is to deliver premium automotive services that combine
-            quality, reliability, and customer satisfaction.
-          </p>
-        </div>
-
-        <div class="about-box">
-          <h2>Why Choose Us?</h2>
-          <p>
-            Experienced staff, professional equipment, fair pricing, and strong
-            customer service make us the right choice for your vehicle.
-          </p>
-        </div>
-
-        <div class="about-box">
-          <h2>Our Services</h2>
-          <p>
-            We offer detailing, custom styling, wrapping, polishing, and vehicle
-            enhancement services tailored to your needs.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <!-- FOOTER -->
-    <div class="footer">
-        <p>Open Mon - Fri: 9am-5pm &nbsp;|&nbsp; 07876 657456</p>
-        <p>Mckenna-t17@ulster.ac.uk &nbsp;|&nbsp; Miszczuk-M@ulster.ac.uk &nbsp;|&nbsp; McTaggart-C4@ulster.ac.uk</p>
+    <!-- COOKIE BANNER -->
+    <div id="cookieBanner">
+        <p>This website uses cookies to improve your experience.</p>
+        <button id="acceptCookies">Accept</button>
+        <button id="declineCookies">Decline</button>
     </div>
 
-</div><!-- end of section .wrapper -->
-
-<!-- COOKIE BANNER -->
-<div id="cookieBanner">
-    <p style="margin:0 0 6px 0;">This website uses cookies to improve your experience.</p>
-    <button id="acceptCookies">Accept</button>
-    <button id="declineCookies">Decline</button>
-</div>
-
-<script src="js/script.js"></script>
+    <!-- MAIN SCRIPT -->
+    <script src="js/script.js"></script>
 
 </body>
 </html>
