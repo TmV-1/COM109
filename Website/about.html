@@ -7,25 +7,25 @@
     
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/favicon-32x32.png">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
 
+<div class="wrapper">
+
     <!-- NAV BAR -->
-    <!-- Added simple branding and links, swapping standalone text for a flexbox logo container -->
     <div class="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="brand" aria-label="Prime Auto Works Home">
-                <img src="images/logo_no_text.png" alt="Prime Auto Works Logo" class="nav-logo">
-            </a>
-            <nav class="nav-links" aria-label="Main navigation">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="login.html">Login</a>
-            </nav>
-        </div>
-        <p id="welcomeUser" class="welcome-user"></p>
+        <!-- Live clock — populated by jQuery every second -->
+        <p id="liveClock" style="margin:0; font-size:13px; opacity:0.85;"></p>
+        <h3 id="welcomeText" style="margin:6px 0;">Welcome</h3>
+        <p style="margin:0;">
+            <a href="login.html">Login</a> -
+            <a href="index.html">Home Page</a> -
+            <a href="about.html">About Us</a> -
+            <a href="contact.html">Contact Us</a>
+        </p>
     </div>
 
     <div class="container">
@@ -36,17 +36,7 @@
           We'd love to hear from you. Whether you have a question about our services,
           pricing, or anything else, our team is ready to help.
         </p>
-
-    <!-- FOOTER -->
-    <div class="footer">
-        <div class="footer-inner">
-            <!-- Placeholder company details for a realistic footer layout -->
-            <p>Prime Auto Works | 123 Service Lane, Belfast BT1 1AA</p>
-            <p>Phone: 028 9000 1234 | Email: <a href="mailto:hello@primeautoworks.example">hello@primeautoworks.example</a></p>
-            <p>Mon-Fri 8:30am-6:00pm | Sat 9:00am-2:00pm | Sun Closed</p>
-            <p>&copy; 2026 Prime Auto Works. All rights reserved.</p>
-        </div>
-    </div>
+      </div>
 
     <div class="contact-form">
         <h2>Send a Message</h2>
@@ -112,7 +102,22 @@
     </div>
   </section>
 
-    <script src="js/script.js"></script>
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>Open Mon - Fri: 9am-5pm &nbsp;|&nbsp; 07876 657456</p>
+        <p>Mckenna-t17@ulster.ac.uk &nbsp;|&nbsp; Miszczuk-M@ulster.ac.uk &nbsp;|&nbsp; McTaggart-C4@ulster.ac.uk</p>
+    </div>
+
+</div><!-- end of section .wrapper -->
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner">
+    <p style="margin:0 0 6px 0;">This website uses cookies to improve your experience.</p>
+    <button id="acceptCookies">Accept</button>
+    <button id="declineCookies">Decline</button>
+</div>
+
+<script src="js/script.js"></script>
 
 </body>
 </html>

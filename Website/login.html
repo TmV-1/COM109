@@ -13,10 +13,14 @@
 
 <body>
 
-<!-- NAV -->
+<div class="wrapper">
+
+<!-- NAV BAR -->
 <div class="nav">
-    <h3>Welcome User</h3>
-    <p>
+    <!-- Live clock — populated by jQuery every second -->
+    <p id="liveClock" style="margin:0; font-size:13px; opacity:0.85;"></p>
+    <h3 id="welcomeText" style="margin:6px 0;">Welcome</h3>
+    <p style="margin:0;">
         <a href="login.html">Login</a> -
         <a href="index.html">Home Page</a> -
         <a href="about.html">About Us</a> -
@@ -60,11 +64,18 @@
             </div>
 
 <!-- FOOTER -->
-<div class="footer">
+    <div class="footer">
         <p>Open Mon - Fri: 9am-5pm &nbsp;|&nbsp; 07876 657456</p>
         <p>Mckenna-t17@ulster.ac.uk &nbsp;|&nbsp; Miszczuk-M@ulster.ac.uk &nbsp;|&nbsp; McTaggart-C4@ulster.ac.uk</p>
     </div>
- 
+
+</div><!-- end of section .wrapper -->
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner">
+    <p style="margin:0 0 6px 0;">This website uses cookies to improve your experience.</p>
+    <button id="acceptCookies">Accept</button>
+    <button id="declineCookies">Decline</button>
 </div>
 
 <script src="js/script.js"></script>
