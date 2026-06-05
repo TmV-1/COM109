@@ -24,3 +24,4 @@ COM109_Group29, Complete Client Side Development website By Tom, Michael and Cor
 │
 └── README.md                # Project documentation
 ```
+My Role, the login, the index and booking pages, the favicon/logo aswell as all JS, also respective css for those pages
