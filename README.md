@@ -1,4 +1,4 @@
-# COM109_Group29
+# COM109_Group29, Complete Client Side Development website By Tom, Michael and Cormac 
 
 ## Project Structure
 
