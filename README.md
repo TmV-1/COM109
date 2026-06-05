@@ -3,7 +3,7 @@
 ## Project Structure
 
 ```
-COM109_Group29/
+COM109_Group29, Complete Client Side Development website By Tom, Michael and Cormac/
 │
 ├── Website/
 │   ├── Login.html           # Login page
